@@ -1,2 +1,4 @@
 .env
 clean_x_feed_venv/
+data/tweet-headers.js
+**/__pycache__/
