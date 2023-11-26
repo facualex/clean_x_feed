@@ -1,19 +1,24 @@
-import requests
 import selenium
 import os
 
 from dotenv import load_dotenv
-from include.utils import get_tweets_links
+from include.utils import (get_tweets_urls,
+                           delete_resource,
+                           delete_retweet,
+                           x_login)
 
 def main_function():
     load_dotenv()
 
-    X_USERNAME = os.environ.get("X_USERNAME")
+    tweet_links = get_tweets_urls(data_path='data/tweet-headers.js',)
 
-    tweet_links = get_tweets_links(user_name=X_USERNAME,
-                                   data_path='data/tweet-headers.js',)
+    logged_in_instance = x_login()
+
+    print(logged_in_instance.title)
     
-    print(tweet_links)
+    logged_in_instance.quit()
 
 if __name__ == "__main__":
     main_function()
+
+ 
